@@ -1,0 +1,14 @@
+[Unit]
+Description= Monitor GoogleBot Crawls and Send notification to Telegram
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root
+ExecStart=/bin/bash /home/root/GoogleBot.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
