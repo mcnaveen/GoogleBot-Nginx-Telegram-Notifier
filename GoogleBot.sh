@@ -7,7 +7,7 @@
 
 apiKey= PASTE YOUR TELEGRAM API KEY HERE
 chatID= PASTE YOUR TELEGRAM CHAT ID HERE
-message="GoogleBot HIT" #
+message="GoogleBot HIT" # You can set your custom message here
 logFile=/var/log/nginx/access.log # This is default nginx log path. You can replace the path according to your setup
 
 tail -fn0 $logFile | \
@@ -18,7 +18,7 @@ while read line ; do
           curl --silent --output /dev/null \
           -X POST \
            "https://api.telegram.org/bot$apiKey/sendMessage" \
-          -d text= $message \
+          -d text="$message" \
           -d chat_id=$chatID
         fi
 done
